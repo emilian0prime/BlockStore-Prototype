@@ -53,6 +53,15 @@ const decodedGet = await calledGet.decode().catch(e => console.error(e));
 
 return decodedGet;
 }
+
+async function callStatic(func, args, value) {
+  const contract = await client.getContractInstance(contractSource, {contractAddress});
+  const calledSet = await contract.call(func, args, {amount: value}).catch(e => console.error(e));
+  
+  return calledSet;
+}
+
+
 window.addEventListener('load', async () => {
     $("#loader").show();
 
@@ -63,20 +72,35 @@ window.addEventListener('load', async () => {
     for (let i = 1; i <= purchasesLength; i++){
      const purchase = await callStatic('getPurchase', [i])
 
+
+
      paymentArray.push({
     index: i,
     purchases: purchase.amount
- })
-}
 
+    $("#loader").hide();
+  })
+}
 
     renderPayment();
 });
 
 jQuery("#paymentBody").on("click", ".payBtn", async function(event){
+    $("#loader").show();
+
     const value = $(this).siblings('input').val();
     const dataIndex = event.target.id;
+
+    await contractCall('pay', [dataIndex], value);
+
     const foundIndex = paymentArray.findIndex(purchase => purchase.index == dataIndex);
     paymentArray[foundIndex].payments += parseInt(value, 10);
     renderPayments();
   });
+   $("#loader").hide();
+
+  paymentArray.push({
+    index: i,
+    purchases: purchase.amount
+ })
+}
