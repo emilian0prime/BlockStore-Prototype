@@ -27,7 +27,7 @@
 
       <!-- Brand -->
       <a class="navbar-brand waves-effect" href="home-page.html">
-        <strong class="blue-text"><img src="img\WhatsApp Image 2019-07-26 at 9.00.57 PM.jpeg" style="width:50px; height:50px;">
+        <strong class="blue-text"><img src="img\WhatsApp Image 2019-07-26 at 9.00.57 PM.jpeg" style="width:100px; height:50px;">
 		<span class="sr-only">(current)</span>
       </a>
 
@@ -43,7 +43,7 @@
         <!-- Left -->
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
-            <a class="nav-link waves-effect" href="home-page.html">Home
+            <a class="nav-link waves-effect" href="index.html">Home
               <span class="sr-only">(current)</span>
             </a>
           </li>
@@ -102,9 +102,9 @@
           <div class="d-flex justify-content-left">
             <div id="paymentBody"
               <!-- Default input -->
-              <p> ₦42000 </p>
+              <h1> ₦42000 </h1>
                <input type="number" class="form-control" placeholder="Amount" id=1>
-                <button class="btn btn-primary btn-md my-0 p" type="submit">Pay
+                <button class="btn paybtn btn-block" type="submit">Pay
                 <i class="fas fa-shopping-cart ml-1"></i>
               </button>
             </div>
@@ -182,8 +182,8 @@
       <div class="d-flex justify-content-left">
         <div id="paymentBody"
           <!-- Default input -->
-          <p> ₦42000 </p>
-          <button class="btn btn-primary btn-md my-0 p" id={{index}}>Pay</button>
+          <h1> ₦42000 </h1>
+          <button class="btn paybtn btn-block" id={{index}}>Pay</button>
        <input type="number" class="form-control" placeholder="Amount" id={{index}}>
      </div>
    {{/paymentArray}}
